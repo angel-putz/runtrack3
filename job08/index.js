@@ -61,4 +61,24 @@
         }
     }
 
-    jourtravaille(new Date(2020, 4, 3));
+
+    function nombrepremier (n , m) {
+        if (n === 0 && m ===0|| n === 1 && m === 1) {
+            return false;
+        } else {
+            for (var i = 2; i < n ; i++) {
+                if (n % i === 0) {
+                    return false;
+                }
+            }
+            for (var i = 2; i < m ; i++) {
+                if (m % i === 0) {
+                    return false;
+                }
+            }
+            somme = n + m ;
+            return somme;
+        }
+    }
+
+    console.log(nombrepremier(3, 5));

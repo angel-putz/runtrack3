@@ -10,3 +10,14 @@
             return false
         }
     }
+
+    function afficherjourssemaines () {
+            var joursemaine = ["Lundi" , "Mardi" , "Mercredi" , "Jeudi" , "Vendredi" , "Samedi" , "Dimanche" ]
+
+            for (var i = 0; i < joursemaine.length; i++) {
+                console.log(joursemaine[i]);
+            }
+
+    }
+
+afficherjourssemaines();

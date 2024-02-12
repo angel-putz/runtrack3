@@ -54,7 +54,7 @@
 
         if (date.getDay() === 0 || date.getDay() === 6) {
             console.log(`Non, ${jour} ${mois} ${annee} est un week-end`);
-        } else if (joursFeries2020.some(d => d.getTime() === date.getTime())) { // si la date est un jour férié 
+        } else if (joursFeries2020.some(date.getTime())) { // si la date est un jour férié 
             console.log(`Le ${jour} ${mois} ${annee} est un jour férié`);
         } else {
             console.log(`Oui, ${jour} ${mois} ${annee} est un jour travaillé`);

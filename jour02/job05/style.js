@@ -57,7 +57,6 @@ var footer = document.getElementById('footer');
 window.addEventListener('scroll', function() {
     // Calculer le pourcentage de défilement
     var scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-
     // Changer la couleur du footer en fonction du pourcentage de défilement
     footer.style.backgroundColor = 'hsl(' + scrollPercent + ', 100%, 50%)';
 });

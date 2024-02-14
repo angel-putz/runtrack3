@@ -73,13 +73,16 @@ document.addEventListener('keydown', function(event) {
     if (event.key === konamiCode[konamiIndex]) {
         // Si c'est le cas, passer à la prochaine touche
         konamiIndex++;
+        console.log(konamiIndex);
 
         // Si toutes les touches ont été pressées dans le bon ordre, appliquer le style Konami
         if (konamiIndex === konamiCode.length) {
             document.body.classList.add('konami');
+            console.log("Konami !");
         }
     } else {
         // Si la touche pressée n'est pas la suivante dans le code Konami, réinitialiser l'index
         konamiIndex = 0;
+        console.log("marche pas");
     }
 });

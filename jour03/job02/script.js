@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $("#melanger").click(function(){
+        $("#arc1").shuffle();
+        $("#arc2").shuffle();
+        $("#arc3").shuffle();
+        $("#arc4").shuffle();
+        $("#arc5").shuffle();
+        $("#arc6").shuffle();
+    });
+});

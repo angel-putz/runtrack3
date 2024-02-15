@@ -1,0 +1,15 @@
+#game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 300px;
+}
+.tile {
+    width: 100px;
+    height: 100px;
+    
+}
+.tile img {
+    width: 100%;
+    height: 100%;
+}

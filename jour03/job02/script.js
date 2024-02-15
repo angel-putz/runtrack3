@@ -16,42 +16,42 @@ $(document).ready(function() {
     });
 
     // Rend les images triables par glisser-déposer
-    $('body').sortable();
+    $('body').sortable({
+        update: function(event, ui) {
+            checkWin();
+        }
+    });
 
     $('#melanger').click(function() {
-        var imagesBefore = $('img').toArray(); // Convertir en tableau pour comparer
         var images = $('img');
-
         images.sort(function() { 
             return 0.5 - Math.random(); 
         });
-
         images.detach().appendTo(parent);
-
-        var imagesAfter = $('img').toArray(); // Convertir en tableau pour comparer
-
-        // Comparer les tableaux d'images avant et après le mélange
-        var imagesMatch = arraysMatch(imagesBefore, imagesAfter);
-
-        if (imagesMatch === true) {
-            $('#bravo').text('Vous avez gagné').css('color', 'green');
-        } else {
-            $('#bravo').text('Vous avez perdu').css('color', 'red');
-        }
-
-        $('#bravo').show();
+        checkWin();
     });
-});
 
-// Fonction pour comparer deux tableaux
-function arraysMatch(arr1, arr2) {
-    // Vérifier si les longueurs sont différentes
-    if (arr1.length !== arr2.length) return false;
+    // Fonction pour vérifier si l'arc-en-ciel est reconstitué
+    function checkWin() {
+        var orderedIds = ['arc1', 'arc2', 'arc3', 'arc4', 'arc5', 'arc6'];
+        var currentIds = $('img').map(function() {
+            return this.id;
+        }).toArray();
 
-    // Comparer chaque élément
-    for (var i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) return false;
+        var win = arraysMatch(orderedIds, currentIds);
+        if (win) {
+            $('#bravo').text('Vous avez gagné').css('color', 'green').show();
+        } else {
+            $('#bravo').text('Vous avez perdu').css('color', 'red').show();
+        }
     }
 
-    return true; // Si les tableaux sont identiques
-}
+    // Fonction pour comparer deux tableaux
+    function arraysMatch(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i] !== arr2[i]) return false;
+        }
+        return true;
+    }
+});

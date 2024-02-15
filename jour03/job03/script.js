@@ -28,9 +28,6 @@ $(document).ready(function() {
         var emptyTile = $('#empty');
         var clickedTile = $(this);
     
-        // Calcule la différence de position entre la tuile cliquée et la tuile vide
-        var diff = Math.abs(clickedTile.index() - emptyTile.index());
-    
         // Calcule les positions de ligne et de colonne de la tuile cliquée et de la tuile vide
         var clickedTileRow = Math.floor(clickedTile.index() / 3);
         var emptyTileRow = Math.floor(emptyTile.index() / 3);
@@ -38,12 +35,11 @@ $(document).ready(function() {
         var emptyTileCol = emptyTile.index() % 3;
     
         // Si les tuiles sont adjacentes horizontalement (et sur la même ligne) ou verticalement (et sur la même colonne), échange leurs positions
-        if ((diff === 1 && clickedTileRow === emptyTileRow) || (diff === 3 && clickedTileCol === emptyTileCol)) {
-            if (clickedTile.index() < emptyTile.index()) {
-                clickedTile.insertAfter(emptyTile);
-            } else {
-                clickedTile.insertBefore(emptyTile);
-            }
+        if ((Math.abs(clickedTileCol - emptyTileCol) === 1 && clickedTileRow === emptyTileRow) || 
+            (Math.abs(clickedTileRow - emptyTileRow) === 1 && clickedTileCol === emptyTileCol)) {
+            var temp = clickedTile.clone();
+            clickedTile.replaceWith(emptyTile.clone());
+            emptyTile.replaceWith(temp);
         }
     
         // Vérifie si les tuiles sont dans le bon ordre
@@ -55,7 +51,7 @@ $(document).ready(function() {
             $('<p>').text('Vous avez gagné').css('color', 'green').appendTo('#game');
             $(document).off('click', '.tile'); // Désactive les événements de clic
         }
-    });
+    });s
 
     // Ajoute un bouton "Recommencer"
     $('<button>').text('Recommencer').click(function() {

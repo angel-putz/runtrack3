@@ -51,7 +51,7 @@ $(document).ready(function() {
             $('<p>').text('Vous avez gagné').css('color', 'green').appendTo('#game');
             $(document).off('click', '.tile'); // Désactive les événements de clic
         }
-    });s
+    });
 
     // Ajoute un bouton "Recommencer"
     $('<button>').text('Recommencer').click(function() {

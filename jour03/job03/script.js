@@ -44,7 +44,7 @@ $(document).ready(function() {
     
         // Vérifie si les tuiles sont dans le bon ordre
         var isWin = tiles.every(function(tile, index) {
-            return $('#' + tile.id).index() === tile.correctPosition - 1;
+            return $('#' + tile.id).index() === tile.correctPosition;
         });
     
         if (isWin) {

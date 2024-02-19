@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $("#inscriptionForm").on("submit", function(event) {
-        //event.preventDefault();
         var form = $(this);
         $.ajax({
             url: "index.php",
@@ -14,7 +13,6 @@ $(document).ready(function() {
     });
 
     $("#connexionForm").on("submit", function(event) {
-        //event.preventDefault();
         var form = $(this);
         $.ajax({
             url: "index.php",

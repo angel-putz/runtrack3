@@ -1,8 +1,13 @@
 <?php
 session_start();
-$prenom = $_SESSION['prenom'];
-?>
 
+if(isset($_SESSION['prenom'])) {
+    echo "<p>Bonjour " . $_SESSION['prenom'] . "</p>";
+} else {
+    echo '<a href="inscription.php">Inscription</a>';
+    echo '<a href="connexion.php">Connexion</a>';
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,21 +17,6 @@ $prenom = $_SESSION['prenom'];
     <title>Document</title>
 </head>
 <body>
-    
-<p div = "result"> Bonjour <?php echo $prenom; ?> </p>
-
-<a href = "inscription.php">Inscription</a>
-<a href = "connexion.php">Connexion</a>
-
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src = "script.js"></script>
+    <p>Bonjour <?php echo $_SESSION["prenom"] ?>   </p>
 </body>
 </html>
-
-
-<?php
-
-if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-
-    
-}

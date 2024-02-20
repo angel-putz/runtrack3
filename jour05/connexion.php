@@ -1,39 +1,21 @@
-<?php
-
-session_start();
-
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $_SESSION['email'] = $email;
-    $_SESSION['password'] = $password;
-
-    header('Location: index.php');
-    exit();
-}
-
-?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Connexion</title>
+    
 </head>
 <body>
-    
-<form action="connexion.php" method="post" id = "connexionForm">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Mot de passe">
-    <input type="submit" name="submit" value="Se connecter">
-</form>
+    <form id="connexionForm">
+        <input type="text" id="email" name="email" placeholder="Email">
+        <span id="emailError"></span>
+        <input type="password" id="password" name="password" placeholder="Mot de passe">
+        <span id="passwordError"></span>
+        <input type="submit" value="Connexion">
+    </form>
+    <a href="inscription.php">Inscription</a>
 
-<a href = "index.php">Accueil</a>
-<a href = "inscription.php">Inscription</a>
-
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src = "script.js"></script>
+    <script src="connexion.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>

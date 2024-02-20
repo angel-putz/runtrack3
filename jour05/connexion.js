@@ -1,7 +1,7 @@
-$(document).ready(function() {
+
     $(document).ready(function() {
         $('#connexionForm').submit(function(e) {
-        //    e.preventDefault();
+            e.preventDefault();
     
             // Clear errors
             $('#emailError').text('');
@@ -26,26 +26,26 @@ $(document).ready(function() {
             // If form data is valid, send to server
             if(isValid) {
                 $.ajax({
-                    url: 'connexion_handler.php',
+                    url: 'index.php',
                     type: 'POST',
                     data: {
                         email: email,
                         password: password
                     },
                     success: function(data) {
-                        var response = JSON.parse(data);
+                      //  var response = JSON.parse(data);
                 
-                        if(response.status === 'success') {
+                        //if(response.status === 'success') {
                             // If login is successful, redirect to the home page
-                            window.location.href = 'http://localhost/runtrack3/jour05/';
-                        } else {
-                            $('#loginError').text(response.message);
+                            window.location.href = 'index.php';
+                       // } else {
+                          //  $('#loginError').text(response.message);
+                          //  console.log(response.message);
                             // Handle login failure
                             // Display error message from response.message
-                        }
+                       // }
                     }
                 });
             }
         });
     });
-});

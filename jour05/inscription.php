@@ -6,7 +6,7 @@
     <script src="inscription.js"></script>
 </head>
 <body>
-    <form id="inscriptionForm">
+    <form id="inscriptionForm" method="POST">
         <input type="text" id="nom" name="nom" placeholder="Nom">
         <span id="nomError"></span>
         <input type="text" id="prenom" name="prenom" placeholder="Prénom">
@@ -22,7 +22,8 @@
     </form>
     <a href="connexion.php">Connexion</a>
 
-    <script src="inscription.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="inscription.js"></script>
+
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(isset($_SESSION['prenom'])) {
-    echo "<p>Bonjour " . $_SESSION['prenom'] . "</p>";
+if(isset($_SESSION['email'])) {
+    echo "<p>Bonjour " . $_SESSION['email'] . "</p>";
 } else {
     echo '<a href="inscription.php">Inscription</a>';
     echo '<a href="connexion.php">Connexion</a>';
@@ -17,6 +17,6 @@ if(isset($_SESSION['prenom'])) {
     <title>Document</title>
 </head>
 <body>
-    <p>Bonjour <?php echo $_SESSION["prenom"] ?>   </p>
+    <p>Bonjour <?php echo $_SESSION["email"] ?>   </p>
 </body>
 </html>

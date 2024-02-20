@@ -62,10 +62,10 @@ $(document).ready(function() {
                     var response = JSON.parse(data);
 
                     if(response.status === 'success') {
-                        window.location.href = 'connexion.php';
+                        window.location.href = 'index.php';
                     } else {
 
-                        
+                        console.log(response);
 
                         
 

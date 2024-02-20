@@ -1,6 +1,22 @@
 <?php
 session_start();
 
+
+
+try {
+    // Votre code de traitement de l'inscription ici
+
+    // Si tout se passe bien, renvoyez une réponse JSON de succès
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'success']);
+} catch (Exception $e) {
+    // Si une exception est levée, renvoyez une réponse JSON d'erreur
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+    exit();
+}
+
+
 // Connect to the database
 $mysqli = new mysqli('localhost', 'root', '', 'utilisateurs');
 
@@ -54,12 +70,6 @@ if(empty($password)) {
     $errors['password'] = 'Password is required';
 }
 
-// Check if password is at least 8 characters
-if(strlen($password) < 8) {
-    $isValid = false;
-    $errors['password'] = 'Password must be at least 8 characters';
-}
-
 // Check if password and passwordConfirmation are the same
 if($password !== $passwordConfirmation) {
     $isValid = false;
@@ -99,4 +109,6 @@ $stmt->close();
 $mysqli->close();
 
 echo json_encode($response);
+
+header('Location: index.php')
 ?>
